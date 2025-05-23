@@ -64,3 +64,11 @@ require "koneksi.php";
     <script src="script.js"></script>
 </body>
 </html>
+
+
+
+
+ $no = 1;
+     $query = mysqli_query($koneksi, "SELECT * FROM tbl_pasien");
+     while ($data = mysqli_fetch_array($query)){
+     }
