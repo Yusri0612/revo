@@ -9,12 +9,12 @@
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 min-vh-100"> 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap
      align-items-center pt-3 pb-2 mb-3 border-bottom">   
-<h1 class="h2">data user</h1> 
+<h1 class="h2">data pasien</h1> 
 </div>
   <a href="<?php $main_url ?>tambah-pasien.php" class="btn btn-outline-primary btn-sm"
    title="tambah user baru"><i class="bi bi-plus-lg align-top"></i>User Baru</a>
 
-  <table class="table table-responsive table-hover">
+  <table class="table table-responsive table-hover table-bordered">
 <thead>
 <tr>
   <th>No</th>
@@ -39,11 +39,8 @@ while ($user = mysqli_fetch_assoc($queryUser)) {
   $kelamin = $user['jk'];
   $agama = $user['agama'];
 ?>
-<tr>
   <td><?= $no++; ?></td>
-  <td class="col-1">
-    <img src="../assets/gambar/<?= $user['gambar']?>" alt="user" class="img-thumbnail rounded-circle img-fluid"></td>
-   <td><?= $user['username'] ?></td>
+   <td><?= $user['nm_pasien'] ?></td>
    <td>
     <?php   
     if ($kelamin == 1){
@@ -53,7 +50,6 @@ while ($user = mysqli_fetch_assoc($queryUser)) {
     }
     ?>
    </td>
-   <td>
    <td>
     <?php  
     if ($agama == 1){
@@ -77,7 +73,7 @@ while ($user = mysqli_fetch_assoc($queryUser)) {
    </td>
    <td>
     <?=
-     $user['tgl_lhr']
+     $user['tgl_lahir']
      ?>
    </td>
    <td>
@@ -87,22 +83,22 @@ while ($user = mysqli_fetch_assoc($queryUser)) {
    </td>
    <td>
     <?=
-     $user['telp']
+     $user['no_telp']
      ?>
    </td>
    <td>
     <?=
-     $user['nama']
+     $user['nm_kk']
      ?>
    </td>
    <td>
     <?=
-     $user['hb']
+     $user['hub_kel']
      ?>
    </td>
    <td>
-    <a href="edit-user.php?id= <?= $user['no_pasien'] ?>&gambar=<?= $user['gambar'] ?>" class="btn btn-sm btn-outline-warning" title="edit user"><i class="bi bi-pen align-top"></i></a>
-    <a href="proses-pasien.php?id= <?= $user['user_id'] ?>&gambar=<?= $user['gambar'] ?>&aksi=hapus-user" 
+    <a href="edit-pasien.php?id= <?= $user['no_pasien'] ?>" class="btn btn-sm btn-outline-warning" title="edit user"><i class="bi bi-pen align-top"></i></a>
+    <a href="proses-pasien.php?id= <?= $user['no_pasien'] ?>&aksi=hapus-user" 
     onclick="return confirm ('Anda yakin mau menghapus user ini ?')" 
     class="btn btn-sm btn-outline-danger" title="hapus user"><i class="bi bi-trash align-top"></i></a>
    </td>

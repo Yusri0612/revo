@@ -12,72 +12,84 @@ $user = mysqli_fetch_assoc($queryUser);
     ?>
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 min-vh-100"> 
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">   
-    <h1 class="h2">Pasien</h1> 
-    <a href ="<?php $main_url ?>index.php" class="text-decoration-none" ><i class="bi bi-arrow-left align-top" ></i>kembali</a>
+    <h1 class="h2">Edit Pasien</h1> 
+    <a href ="<?= $main_url ?>data/pasien/index.php" class="text-decoration-none" ><i class="bi bi-arrow-left align-top" ></i>kembali</a>
     </div>
     <form action="proses-pasien.php" method ="POST" enctype="multipart/form-data">
-
-    <div class="row">
-        <div class="col-lg-4 mb-4 text-center">
-            <div class="px-4 mb-4">
-                <input type="hidden" name="gbrlama" value="<?= $user['gambar']?>">
-                <img src="<?= $main_url?>assets/gambar/<?= $user['gambar']?>" alt="user" class="mb-3 rounded-circle tampil" id="preview-img"  style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;" width="120px">
-        <input type="file" class="form-control form-control-sm" name="gambar" onchange="imgview()" id="gambar">
-            </div>
-
-            <button type="submit" name="update" class="btn btn-outline-primary btn-sm">
-                <i class="bi bi-save align-top"></i>Update</button>
-        </div>
-
     <div class="col-lg-8">
-        <div class="form-group mb-3">
-         <input type="hidden" name="id" value="<?= $user['no_pasien']?>">
-         <input type="hidden" name="usernamelama" value="<?= $user['username']?>">
+       <input type="hidden" name="id" value="<?= $user['no_pasien'] ?>">
+<input type="hidden" name="usernamelama" value="<?= $user['nm_pasien'] ?>">
 
-    <label for="usename" class="form-label">Username</label>
-    <input type="text"id="username" name="username" class="form-control" placeholder="masukan username" value="<?= $user['username']?>" autocomplete="off" autofocus require>
+
+    <div class="form-group mb-3">
+    <label for="username" class="form-label">Nama</label>
+    <input type="text" id="username" name="username" class="form-control" value="<?= $user['nm_pasien'] ?>" placeholder="masukan username" autocomplete="off" autofocus required>
     </div>
 
-        <div class="form-group mb-3">
-    <label for="fullname" class="form-label">Fullname</label>
-    <input type="text"id="fullname" name="fullname" class="form-control" value="<?= $user['fullname']?>" placeholder="masukan nama lengkap" autocomplete="off" autofocus require>
+          <div class="form-group mb-3">
+    <label for="jk" class="form-label">Jenis Kelamin</label>
+    <select name="jk" id="jk" class="form-select" required>
+    <option value="">--Pilih jenis kelamin--</option>
+    <option value="1" <?= $user['jk'] == '1' ? 'selected' : '' ?>>Laki - laki</option>
+    <option value="2" <?= $user['jk'] == '2' ? 'selected' : '' ?>>Perempuan</option>
+</select>
+
     </div>
 
-        <div class="form-group mb-3">
-    <label for="jabatan" class="form-label">Jabatan</label>
-    <select name="jabatan"id="jabatan" class="form-select" require>
-    <option value="">--Pilih Jabatan--</option>
-    <option value="1" <?= $user['jabatan'] == 1 ? 'selected' :'' ?>>Administrator</option>
-    <option value="2" <?= $user['jabatan'] == 2 ? 'selected' :'' ?>>Petugas</option>
-    <option value="3" <?= $user['jabatan'] == 3 ? 'selected' :'' ?>>Dokter</option>
-    </select>
+         <div class="form-group mb-3">
+    <label for="agama" class="form-label">Agama</label>
+    <select name="agama" id="agama" class="form-select" required>
+    <option value="">--Pilih Agama--</option>
+    <option value="1" <?= $user['agama'] == '1' ? 'selected' : '' ?>>Islam</option>
+    <option value="2" <?= $user['agama'] == '2' ? 'selected' : '' ?>>Kristen</option>
+    <option value="3" <?= $user['agama'] == '3' ? 'selected' : '' ?>>Hindu</option>
+    <option value="4" <?= $user['agama'] == '4' ? 'selected' : '' ?>>Buddha</option>
+    <option value="5" <?= $user['agama'] == '5' ? 'selected' : '' ?>>Konghuchu</option>
+    <option value="6" <?= $user['agama'] == '6' ? 'selected' : '' ?>>Katolik</option>
+</select>
+
     </div>
 
     <div class="form-group mb-3">
     <label for="alamat" class="form-label">Alamat</label>
-    <textarea name="alamat" id="alamat" cols="" rows="3" class="form-control"
-     placeholder="masukan alamat user"><?= $user['alamat']?></textarea>
+<textarea name="alamat" id="alamat" rows="3" class="form-control" placeholder="masukan alamat user"><?= $user['alamat'] ?></textarea>
     </div>
+
+        <div class="form-group mb-3">
+    <label for="lahir" class="form-label">Tanggal Lahir</label>
+<input type="date" id="lahir" name="lahir" class="form-control" value="<?= $user['tgl_lahir'] ?>" autocomplete="off" required>
+    </div>
+
+      <div class="form-group mb-3">
+    <label for="usia" class="form-label">Usia</label>
+<input type="number" id="usia" name="usia" class="form-control" value="<?= $user['usia'] ?>" autocomplete="off" required>
+    </div>
+
+      <div class="form-group mb-3">
+    <label for="telp" class="form-label">No Telpon</label>
+<input type="number" id="telp" name="telp" class="form-control" value="<?= $user['no_telp'] ?>" autocomplete="off" required>
+    </div>
+
+      <div class="form-group mb-3">
+    <label for="nama" class="form-label">Nama kk</label>
+<input type="text" id="nama" name="nama" class="form-control" value="<?= $user['nm_kk'] ?>" autocomplete="off" required>
+    </div>
+
+      <div class="form-group mb-3">
+    <label for="hb" class="form-label">Hub Keluarga</label>
+<input type="text" id="hb" name="hb" class="form-control" value="<?= $user['hub_kel'] ?>" autocomplete="off" required>
+    </div>
+
+     <div class="row">
+        <div class="col-lg-4 mb-4 text-center">
+            <button type="submit" name="update" class="btn btn-outline-primary btn-sm">
+                <i class="bi bi-save align-top"></i>Update</button>
+        </div>
+
     </div>
     </form>
     </main>
 
-    <script>
-
-        function imgview(){
-            let gambar = document.getElementById('gambar');
-            let tampil = document.querySelector('.tampil');
-
-            let filereader = new FileReader();
-            filereader.readAsDataURL(gambar.files[0]);
-
-            filereader.addEventListener('load', (e)=>{
-                            tampil.src =e.target.result;
-
-            })
-            }
-        
-    </script>
     <?php
 
     require "../../template/footer.php";

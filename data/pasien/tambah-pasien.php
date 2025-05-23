@@ -12,19 +12,9 @@
     <a href ="<?php $main_url ?>index.php" class="text-decoration-none" ><i class="bi bi-arrow-left align-top" ></i>kembali</a>
     </div>
     <form action="proses-pasien.php" method ="POST" enctype="multipart/form-data">
-
-    <div class="row">
-        <div class="col-lg-4 mb-4 text-center">
-            <div class="px-4 mb-4">
-                <img src="<?= $main_url?>assets/gambar/user.png" alt="user" class="mb-3 rounded-circle tampil" id="preview-img"  style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;" width="120px">
-        <input type="file" class="form-control form-control-sm" name="gambar" onchange="imgview()" id="gambar">            </div>
-            <button type="reset" class="btn btn-outline-danger btn-sm"><i class="bi bi-x-lg"></i>Reset</button>
-            <button type="submit" name="simpan" class="btn btn-outline-primary btn-sm"><i class="bi bi-save align-top"></i>Simpan</button>
-        </div>
-
     <div class="col-lg-8">
         <div class="form-group mb-3">
-    <label for="usename" class="form-label">Nama</label>
+    <label for="username" class="form-label">Nama</label>
     <input type="text"id="username" name="username" class="form-control" placeholder="masukan username" autocomplete="off" autofocus require>
     </div>
 
@@ -79,6 +69,12 @@
     <label for="hb" class="form-label">Hub Keluarga</label>
     <input type="text"id="hb" name="hb" class="form-control" placeholder="masukan jenis kelamin" autocomplete="off" autofocus require>
     </div>
+
+     <div class="row">
+        <div class="col-lg-4 mb-4 text-center">
+            <button type="reset" class="btn btn-outline-danger btn-sm"><i class="bi bi-x-lg"></i>Reset</button>
+            <button type="submit" name="simpan" class="btn btn-outline-primary btn-sm"><i class="bi bi-save align-top"></i>Simpan</button>
+        </div>
 
     </div>
     </form>
