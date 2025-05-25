@@ -1,8 +1,8 @@
     <?php
-    require "../koneksi.php";
-    require "../template/header.php";
-    require "../template/navbar.php";
-    require "../template/sidebar.php";
+    require "../../koneksi.php";
+    require "../../template/header.php";
+    require "../../template/navbar.php";
+    require "../../template/sidebar.php";
      $title ="user baru - rekam medis";
 
     ?>
@@ -14,5 +14,5 @@
     
     <?php
 
-    require "../template/footer.php";
+    require "../../template/footer.php";
     ?>
