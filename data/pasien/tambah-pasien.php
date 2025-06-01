@@ -1,4 +1,4 @@
-   <?php
+<?php
     require "../../koneksi.php";
     $title ="user baru - rekam medis";
     require "../../template/header.php";
@@ -46,28 +46,28 @@
     </div>
 
         <div class="form-group mb-3">
-    <label for="lahir" class="form-label">Tanggal Lahir</label>
-    <input type="date"id="lahir" name="lahir" class="form-control" autocomplete="off" autofocus require>
+    <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
+    <input type="date"id="tgl_lahir" name="tgl_lahir" class="form-control" autocomplete="off" autofocus require>
     </div>
 
       <div class="form-group mb-3">
     <label for="usia" class="form-label">Usia</label>
-    <input type="number"id="usia" name="usia" class="form-control" placeholder="masukan jenis kelamin" autocomplete="off" autofocus require>
+    <input type="number"id="usia" name="usia" class="form-control" placeholder="usia" autocomplete="off" autofocus require readonly>
     </div>
 
       <div class="form-group mb-3">
     <label for="telp" class="form-label">No Telpon</label>
-    <input type="number"id="telp" name="telp" class="form-control" placeholder="masukan jenis kelamin" autocomplete="off" autofocus require>
+    <input type="number"id="telp" name="telp" class="form-control" placeholder="masukan no telepon" autocomplete="off" autofocus require>
     </div>
 
       <div class="form-group mb-3">
     <label for="nama" class="form-label">Nama kk</label>
-    <input type="text"id="nama" name="nama" class="form-control" placeholder="masukan jenis kelamin" autocomplete="off" autofocus require>
+    <input type="text"id="nama" name="nama" class="form-control" placeholder="masukan nama kk" autocomplete="off" autofocus require>
     </div>
 
       <div class="form-group mb-3">
     <label for="hb" class="form-label">Hub Keluarga</label>
-    <input type="text"id="hb" name="hb" class="form-control" placeholder="masukan jenis kelamin" autocomplete="off" autofocus require>
+    <input type="text"id="hb" name="hb" class="form-control" placeholder="masukan hubungan keluarga" autocomplete="off" autofocus require>
     </div>
 
      <div class="row">
@@ -96,6 +96,18 @@
             }
         
     </script>
+    <script>
+document.getElementById('tgl_lahir').addEventListener('change', function() {
+    const tglLahir = new Date(this.value);
+    const today = new Date();
+    let usia = today.getFullYear() - tglLahir.getFullYear();
+    const m = today.getMonth() - tglLahir.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < tglLahir.getDate())) {
+        usia--;
+    }
+    document.getElementById('usia').value = usia;
+});
+</script>
     <?php
 
     require "../../template/footer.php";

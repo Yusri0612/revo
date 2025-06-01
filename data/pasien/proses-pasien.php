@@ -7,7 +7,7 @@ if (isset($_POST['simpan'])) {
     $kelamin  = $_POST['jk'];
     $agama    = $_POST['agama'];
     $alamat   = trim(htmlspecialchars($_POST['alamat']));
-    $tgl_lhr  = trim(htmlspecialchars($_POST['lahir']));
+    $tgl_lhr  = trim(htmlspecialchars($_POST['tgl_lahir']));
     $usia     = trim(htmlspecialchars($_POST['usia']));
     $telp     = trim(htmlspecialchars($_POST['telp']));
     $namakk   = trim(htmlspecialchars($_POST['nama']));
@@ -52,7 +52,7 @@ if (isset($_GET['aksi']) && $_GET['aksi'] == 'hapus-user') {
 // UPDATE USER
 if (isset($_POST['update'])) {
     // Cek keberadaan semua input
-    if (!isset($_POST['id'], $_POST['usernamelama'], $_POST['username'], $_POST['jk'], $_POST['agama'], $_POST['alamat'], $_POST['lahir'], $_POST['usia'], $_POST['telp'], $_POST['nama'], $_POST['hb'])) {
+    if (!isset($_POST['id'], $_POST['usernamelama'], $_POST['username'], $_POST['jk'], $_POST['agama'], $_POST['alamat'], $_POST['tgl_lahir'], $_POST['usia'], $_POST['telp'], $_POST['nama'], $_POST['hb'])) {
         echo "<script>alert('Data tidak lengkap!'); window.location = 'index.php';</script>";
         exit;
     }
@@ -64,7 +64,7 @@ if (isset($_POST['update'])) {
     $kelamin    = trim($_POST['jk']);
     $agama      = trim($_POST['agama']);
     $alamat     = trim(htmlspecialchars($_POST['alamat']));
-    $tgl_lhr    = trim(htmlspecialchars($_POST['lahir']));
+    $tgl_lhr    = trim(htmlspecialchars($_POST['tgl_lahir']));
     $usia       = (int) $_POST['usia'];
     $telp       = trim(htmlspecialchars($_POST['telp']));
     $namakk     = trim(htmlspecialchars($_POST['nama']));

@@ -10,11 +10,12 @@
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap
      align-items-center pt-3 pb-2 mb-3 border-bottom">   
 <h1 class="h2">data pasien</h1> 
-</div>
   <a href="<?php $main_url ?>tambah-pasien.php" class="btn btn-outline-primary btn-sm"
-   title="tambah user baru"><i class="bi bi-plus-lg align-top"></i>User Baru</a>
+   title="tambah user baru"><i class="bi bi-plus-lg align-top"></i>Tambah Pasien</a>
 
-  <table class="table table-responsive table-hover table-bordered">
+</div>
+
+  <table class="table table-responsive table-hover ">
 <thead>
 <tr>
   <th>No</th>
@@ -65,7 +66,6 @@ while ($user = mysqli_fetch_assoc($queryUser)) {
     }else{
       echo 'konghuchu';
     }
-    
     ?>
    </td>
    <td>

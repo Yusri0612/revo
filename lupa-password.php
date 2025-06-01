@@ -53,7 +53,7 @@ require "koneksi.php";
       font-size: 0.85rem;
       color: #888;
     }
-    #lupa {
+        #lupa {
       display: block;
       margin-top: 16px;
       color: #007bff;
@@ -62,14 +62,15 @@ require "koneksi.php";
   </style>
 </head>
 <body>
-  <form action="proses-login.php" method="post">
+  <form action="proses-lupa.php" method="post">
     <div class="login-container">
       <img src="assets/gambar/logo.png" alt="Logo" class="logo" />
-      <h2>Selamat Datang</h2>
+      <h2>Reset Password</h2>
       <input type="text" class="form-control" name="username" placeholder="Username" required />
-      <input type="password" class="form-control" name="password" placeholder="Password" required />
-      <button type="submit" class="btn btn-primary" name="masuk">Masuk</button>
-      <a href="lupa-password.php" id="lupa">Lupa Password?</a>
+      <input type="password" class="form-control" name="password" placeholder=" Masukan Password Baru" required />
+      <input type="password2" class="form-control" name="password2" placeholder=" Konfirmasi Password Baru" required />
+      <button type="submit" class="btn btn-primary" name="lupa">Reset</button>
+      <a href="index.php" id="lupa">Kembali Ke Login</a>
       <div class="footer">© 2024–2025</div>
     </div>
   </form>

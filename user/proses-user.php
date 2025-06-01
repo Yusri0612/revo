@@ -34,7 +34,7 @@ if ($gambar != null){
 }else{  
     $gambar ='user.png';
 }
-mysqli_query($koneksi, "INSERT INTO tbl_user VALUES (null,'$username', '$nama', '$password', '$jabatan', '$alamat', '$gambar' ) ");
+mysqli_query($koneksi, "INSERT INTO tbl_user VALUES (null,'$username', '$nama', '$pass', '$jabatan', '$alamat', '$gambar' ) ");
 
  echo "<script>
     alert('user baru berhasil di registrsi !');
@@ -43,7 +43,7 @@ mysqli_query($koneksi, "INSERT INTO tbl_user VALUES (null,'$username', '$nama', 
     return;
 }
 
-if ($_GET['aksi'] == 'hapus-user'){
+if (isset($_GET['aksi']) && $_GET['aksi'] == 'hapus-user') {
     $id = $_GET['id'];
     $gbr = $_GET['gambar'];
 

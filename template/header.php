@@ -1,5 +1,6 @@
 <?php
 $title ="dashboard- rekam medis";
+$level = isset($_SESSION['jabatan']) ? $_SESSION['jabatan'] : '';
 ?>
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="auto">

@@ -49,7 +49,7 @@ $user = mysqli_fetch_assoc($queryUser);
     <label for="jabatan" class="form-label">Jabatan</label>
     <select name="jabatan"id="jabatan" class="form-select" require>
     <option value="">--Pilih Jabatan--</option>
-    <option value="1" <?= $user['jabatan'] == 1 ? 'selected' :'' ?>>Administrator</option>
+    <option value="1" <?= $user['jabatan'] == 1 ? 'selected' :'' ?>>Tamu</option>
     <option value="2" <?= $user['jabatan'] == 2 ? 'selected' :'' ?>>Petugas</option>
     <option value="3" <?= $user['jabatan'] == 3 ? 'selected' :'' ?>>Dokter</option>
     </select>

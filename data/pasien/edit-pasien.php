@@ -1,4 +1,4 @@
-    <?php
+<?php
     require "../../koneksi.php";
     require "../../template/header.php";
     require "../../template/navbar.php";
@@ -56,13 +56,13 @@ $user = mysqli_fetch_assoc($queryUser);
     </div>
 
         <div class="form-group mb-3">
-    <label for="lahir" class="form-label">Tanggal Lahir</label>
-<input type="date" id="lahir" name="lahir" class="form-control" value="<?= $user['tgl_lahir'] ?>" autocomplete="off" required>
+    <label for="tgl_lahir" class="form-label">Tanggal Lahir</label>
+<input type="date" id="tgl_lahir" name="tgl_lahir" class="form-control" value="<?= $user['tgl_lahir'] ?>" autocomplete="off" required>
     </div>
 
       <div class="form-group mb-3">
     <label for="usia" class="form-label">Usia</label>
-<input type="number" id="usia" name="usia" class="form-control" value="<?= $user['usia'] ?>" autocomplete="off" required>
+<input type="number" id="usia" name="usia" class="form-control" value="<?= $user['usia'] ?>" readonly>
     </div>
 
       <div class="form-group mb-3">
@@ -94,3 +94,16 @@ $user = mysqli_fetch_assoc($queryUser);
 
     require "../../template/footer.php";
     ?>
+
+<script>
+document.getElementById('tgl_lahir').addEventListener('change', function() {
+    const tglLahir = new Date(this.value);
+    const today = new Date();
+    let usia = today.getFullYear() - tglLahir.getFullYear();
+    const m = today.getMonth() - tglLahir.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < tglLahir.getDate())) {
+        usia--;
+    }
+    document.getElementById('usia').value = usia;
+});
+</script>
